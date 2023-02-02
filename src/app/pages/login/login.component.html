@@ -1,1 +1,60 @@
-<p>login works!</p>
+<div class="container py-3 mt-[80px]">
+    
+    <div class="row justify-content-center my-5">
+      <div class="col-9 col -sm-9 col-md-7 col-lg-5 col-xl-4 border px-6 rounded-lg">
+        <form [formGroup]="formLogin" #form="ngForm">
+            <div class="text-center pt-4 pb-2">
+                <h1 class="titulo__login">Login</h1>
+            </div>
+          <div class="row">
+            <div class="col mb-10">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" id="email" name="email" formControlName="email" required minlength="1" maxlength="250" class="form-control py-2" [class.is-invalid]="email.invalid && (email.dirty || email.touched)">
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+                <div *ngIf="email.errors?.['required']">
+                    Este campo es obligatorio.
+                </div>
+                <div *ngIf="email.errors?.['minlength']">
+                    Este campo debe tener al menos 1 carácter.
+                </div>
+                <div *ngIf="email.errors?.['maxlength']">
+                    Este campo debe tener como máximo 250 caracteres.
+                </div>
+                <div *ngIf="!email.errors?.['required'] && !email.errors?.['minlength'] && !email.errors?.['maxlength'] && email.errors?.['emailValidator']">
+                    Formato de correo inválido.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-10">
+              <label for="password" class="form-label">Password:</label>
+              <div class="input-group has-validation">
+                <input [type]="user.showPassword ? 'text' : 'password'" id="password" name="password" formControlName="password" required minlength="8" class="form-control py-2" [class.is-invalid]="password.invalid && (password.dirty || password.touched)">
+                <button type="button" class="btn btn-outline-secondary" (click)="user.showPassword = !user.showPassword">
+                    <img [ngClass]="{'bi-eye-fill': !user.showPassword, 'bi-eye-slash-fill': user.showPassword}" [src]="user.showPassword ? '/assets/icon/eye-slash-fill.svg' : '/assets/icon/eye-fill.svg'">
+                  </button>
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid-feedback">
+                  <div *ngIf="password.errors?.['required']">
+                    Este campo es obligatorio.
+                  </div>
+                  <div *ngIf="password.errors?.['minlength']">
+                    Este campo debe tener al menos 8 caracteres.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-8 d-grid">
+              <button type="button" class="bg-blue-500 py-[14px] text-white duration-300 rounded hover:bg-blue-600" (click)="validate()">Iniciar sesión</button>
+              <div class="mt-4">
+                <span>¿No tienes una cuenta? <span class="text-orange-500 cursor-pointer duration-300 hover:text-green-500" (click)="registrarse()">¡Crea tu cuenta aquí!</span></span>
+            </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

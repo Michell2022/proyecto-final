@@ -1,1 +1,14 @@
-<p>header works!</p>
+<header class="header">
+    <div class="header__container">
+        <h1 class="nav__logo">Owitech</h1>
+        <label for="menu" class="nav__label">
+            <img src="assets/icon/menu.svg" alt="mylogo" class="nav__img">
+        </label>
+        <input type="checkbox" id="menu" class="nav__input">
+        <ul class="nav__menu">
+            <li class="flex items-center"><a class="nav__item" routerLinkActive routerLink="/listaProducto">Agregar</a></li>
+            <li class="flex items-center"><a class="nav__item" routerLinkActive routerLink="/home">Home</a></li>
+            <li><a class="nav__item" routerLinkActive routerLink="/login"><img src="assets/icon/user-regular.svg" alt="">Iniciar sesión</a></li>
+        </ul>
+    </div>
+</header>

@@ -5,7 +5,10 @@ import { ProductosComponent } from './productos/productos.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrarUsuarioComponent } from './registrar-usuario/registrar-usuario.component';
 import { BreakingComponent } from './breaking/breaking.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing.module';
+import { EmailValidatorDirective } from './login/email-validator.directive';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -14,10 +17,22 @@ import { BreakingComponent } from './breaking/breaking.component';
     ProductosComponent,
     LoginComponent,
     RegistrarUsuarioComponent,
-    BreakingComponent
+    BreakingComponent,
+    EmailValidatorDirective
   ],
   imports: [
-    CommonModule
+    BrowserModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule
+  ],
+  exports: [
+    HomeComponent,
+    ProductosComponent,
+    LoginComponent,
+    RegistrarUsuarioComponent,
+    BreakingComponent
   ]
 })
 export class PagesModule { }

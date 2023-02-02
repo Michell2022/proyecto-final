@@ -1,1 +1,40 @@
-<p>lista-producto works!</p>
+<div class="pt-[80px]">
+    <mat-card-content class="w-[90%]">
+      <h1 class="text-center py-6 listaProduc">Tabla de Productos</h1>
+      <div class="demo-button-container w-9/12 mx-auto">
+        <button mat-raised-button (click)="agregarProducto()" 
+        class="demo-button text-[20px] mb-6 bg-green-500 text-white py-3  px-8 rounded-md duration-300 flex items-center  hover:bg-green-600">Agregar producto</button>
+      </div>
+      <table class="table-auto border-collapse border border-slate-400 w-9/12 mx-auto my-8 text-center md:w-[90%]">
+        <thead class="bg-black text-white text-lg">
+          <tr>
+            <th class="border border-slate-300 py-3 px-4">Código</th>
+            <th class="border border-slate-300 py-3 px-4">Nombre</th>
+            <th class="border border-slate-300 py-3 px-4">Precio</th>
+            <th class="border border-slate-300 py-3 px-4">Oferta</th>
+            <th class="border border-slate-300 py-3 px-4">Stock</th>
+            <th class="border border-slate-300 py-3 px-4">Descripción</th>
+            <th class="border border-slate-300 py-3 px-4">Imagen</th>
+            <th class="border border-slate-300 py-3 px-4">Marca</th>
+            <th class="border border-slate-300 py-3 px-4">Tools</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produc of listaproductos" class="group/item hover:bg-blue-100">
+            <td class="border border-slate-300">{{produc.codigo}}</td>
+            <td class="border border-slate-300">{{produc.nombre}}</td>
+            <td class="border border-slate-300">{{produc.precio | currency:'S/.'}}</td>
+            <td class="border border-slate-300">{{produc.oferta | currency:'S/.'}}</td>
+            <td class="border border-slate-300">{{produc.stock}}</td>
+            <td class="border border-slate-300">{{produc.descripcion}}</td>
+            <td class="border border-slate-300"><img class="mx-auto my-1" src="{{produc.imagen}}" alt="" width="100"></td>
+            <td class="border border-slate-300"><img class="mx-auto my-1" src="{{produc.marca}}" alt="" width="100"></td>
+            <td class="border border-slate-300">
+              <button class="bg-red-500 duration-300 tex-white my-1 px-4 py-2 rounded-md text-white hover:bg-red-700" (click)="onClickDelete(produc)"><span class="material-symbols-outlined flex items-center">delete</span></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </mat-card-content>
+</div>

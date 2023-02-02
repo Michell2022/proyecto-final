@@ -1,1 +1,80 @@
-<p>crear-producto works!</p>
+
+<!--  ESTE SERA MI DIALOG QUE APARECERA CUANDO DE CLICK EN AGREGAR  -->
+<mat-card-content>
+    <div class="w-[600px] px-4">
+        <h1 class="text-[30px] text-center pt-3">Agregar un nuevo Producto</h1>
+        <form [formGroup]="productoForm">
+            <div class="mb-6">
+                <div>
+                    <label for="codigo">Ingrese código:</label>
+                </div>
+                <div>
+                    <input type="text" name="codigo" id="codigo" formControlName="codigo" class="border w-full px-1 py-2 rounded-md ">
+                </div>
+            </div>
+            <div class="mb-6">
+                <div>
+                    <label for="nombre">Ingrese Nombre:</label>
+                </div>
+                <div>
+                    <input type="text" name="nombre" id="nombre" formControlName="nombre" style="text-transform:uppercase" class="border w-full px-1 py-2 rounded-md">
+                </div>
+            </div>
+        <div class="flex justify-between">
+            <div class="mb-6">
+                <div>
+                    <label for="precio">Ingrese precio:</label>
+                </div>
+                <div>
+                    <input type="number" name="precio" id="precio" formControlName="precio" class="border w-full px-1 py-2 rounded-md">
+                </div>
+            </div>
+            <div class="mb-6">
+                <div>
+                    <label for="oferta">Ingrese Oferta:</label>
+                </div>
+                <div>
+                    <input type="number" name="oferta" id="oferta" formControlName="oferta" class="border w-full px-1 py-2 rounded-md">
+                </div>
+            </div>
+            <div class="mb-6">
+                <div>
+                    <label for="stock">Ingrese el Stock:</label>
+                </div>
+                <div>
+                    <input type="text" name="stock" id="stock" formControlName="stock" class="border w-full px-1 py-2 rounded-md">
+                </div>
+            </div>
+        </div>
+            <div class="mb-6">
+                <div>
+                    <label for="descripcion">Descripción:</label>
+                </div>
+                <div>
+                    <input type="text" name="descripcion" id="descripcion" formControlName="descripcion" class="border w-full px-1 py-2 rounded-md">
+                </div>
+            </div>
+            <div class="mb-6">
+                <div>
+                    <label for="imagen">Imagen:</label>
+                </div>
+                <div>
+                    <input type="text" name="imagen" id="imagen" formControlName="imagen" class="border w-full px-1 py-2 rounded-md">
+                </div>
+            </div>
+            <div class="mb-6">
+                <div>
+                    <label for="marca">Imagen de Marca:</label>
+                </div>
+                <div>
+                    <input type="text" name="marca" id="marca" formControlName="marca" class="border w-full px-1 py-2 rounded-md">
+                </div>
+            </div>
+
+            <div class="flex justify-around pb-3">
+                <button class="bg-red-500 text-white py-2 px-4 rounded duration-300 hover:bg-red-600" (click)="cancelar()">Cancelar</button>
+                <button class="bg-green-500 text-white py-2 px-4 rounded duration-300 hover:bg-green-600" [disabled]="productoForm.invalid" (click)="onSubmit()">Confirmar</button>
+            </div>
+        </form>
+    </div>
+</mat-card-content>
